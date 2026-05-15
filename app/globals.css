@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --charcoal: #171814;
+  --charcoal-soft: #24251f;
+  --ivory: #f7f0e3;
+  --ivory-muted: #efe4d2;
+  --gold: #b8924a;
+  --gold-soft: #d3b16f;
+  --olive: #3f4630;
+  --olive-deep: #2e3524;
+  --ink-muted: #6f6a5f;
+}
+
+@theme inline {
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-soft: var(--charcoal-soft);
+  --color-ivory: var(--ivory);
+  --color-ivory-muted: var(--ivory-muted);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-olive: var(--olive);
+  --color-olive-deep: var(--olive-deep);
+  --color-ink-muted: var(--ink-muted);
+  --font-sans: var(--font-persian), Vazirmatn, IRANSans, Tahoma, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ivory);
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(184, 146, 74, 0.14), transparent 32rem),
+    linear-gradient(180deg, #f9f3e8 0%, var(--ivory) 48%, #f3eadb 100%);
+  color: var(--charcoal);
+  font-family: var(--font-persian), Vazirmatn, IRANSans, Tahoma, Arial, sans-serif;
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(184, 146, 74, 0.28);
+}
+
+.prose-legal p {
+  margin-block: 1rem;
+  color: var(--ink-muted);
+}
