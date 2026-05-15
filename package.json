@@ -1,0 +1,13 @@
+{
+  "name": "avaye-edalat-kerman-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public Persian RTL website for مؤسسه حقوقی آوای عدالت کریمان in Kerman.",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "dev": "python3 -m http.server 4173",
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
