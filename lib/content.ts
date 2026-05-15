@@ -9,10 +9,11 @@ export const siteInfo = {
 };
 
 export const navigation = [
-  { href: "/#services", label: "خدمات" },
+  { href: "/services", label: "خدمات" },
+  { href: "/property-disputes", label: "دعاوی ملکی" },
   { href: "/#process", label: "روند همکاری" },
   { href: "/articles", label: "مقالات" },
-  { href: "/#about", label: "درباره مؤسسه" },
+  { href: "/about", label: "درباره مؤسسه" },
   { href: "/contact", label: "تماس" },
 ];
 
