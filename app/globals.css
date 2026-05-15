@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --charcoal: #171814;
@@ -10,19 +12,6 @@
   --olive: #3f4630;
   --olive-deep: #2e3524;
   --ink-muted: #6f6a5f;
-}
-
-@theme inline {
-  --color-charcoal: var(--charcoal);
-  --color-charcoal-soft: var(--charcoal-soft);
-  --color-ivory: var(--ivory);
-  --color-ivory-muted: var(--ivory-muted);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-olive: var(--olive);
-  --color-olive-deep: var(--olive-deep);
-  --color-ink-muted: var(--ink-muted);
-  --font-sans: var(--font-persian), Vazirmatn, IRANSans, Tahoma, Arial, sans-serif;
 }
 
 * {
@@ -40,7 +29,7 @@ body {
     radial-gradient(circle at top left, rgba(184, 146, 74, 0.14), transparent 32rem),
     linear-gradient(180deg, #f9f3e8 0%, var(--ivory) 48%, #f3eadb 100%);
   color: var(--charcoal);
-  font-family: var(--font-persian), Vazirmatn, IRANSans, Tahoma, Arial, sans-serif;
+  font-family: Vazirmatn, IRANSans, Tahoma, Arial, sans-serif;
   line-height: 1.9;
   text-rendering: optimizeLegibility;
 }
