@@ -83,14 +83,15 @@ ul { list-style: none; }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
 .brand__mark { color: var(--gold); display: inline-grid; place-items: center; }
 .brand__text { display: flex; flex-direction: column; line-height: 1.35; }
-.brand__text strong { font-size: 1.18rem; color: var(--navy); }
-.brand__text small { font-size: .74rem; color: var(--muted); }
+.brand__text strong { font-size: 1.04rem; color: var(--navy); white-space: nowrap; }
+.brand__text small { font-size: .72rem; color: var(--muted); white-space: nowrap; }
 
-.nav { display: flex; align-items: center; gap: 22px; }
-.nav__list { display: flex; align-items: center; gap: 4px; }
+.nav { display: flex; align-items: center; gap: 16px; }
+.nav__list { display: flex; align-items: center; gap: 2px; }
+.nav__cta { white-space: nowrap; }
 .nav__list a {
-  display: inline-block; padding: 9px 13px; border-radius: 8px; font-weight: 600;
-  font-size: .94rem; color: var(--ink); position: relative;
+  display: inline-block; padding: 9px 11px; border-radius: 8px; font-weight: 600;
+  font-size: .92rem; color: var(--ink); position: relative; white-space: nowrap;
 }
 .nav__list a::after {
   content: ""; position: absolute; inset-inline: 13px; bottom: 4px; height: 2px;
@@ -123,8 +124,17 @@ ul { list-style: none; }
     linear-gradient(90deg, transparent 95%, rgba(255,255,255,.04) 95%);
   background-size: 46px 46px; opacity: .5;
 }
-.hero__inner { position: relative; padding: clamp(56px, 9vw, 120px) 0 clamp(64px, 10vw, 130px); }
-.hero__content { max-width: 760px; }
+.hero__inner { position: relative; z-index: 2; padding: clamp(56px, 9vw, 120px) 0 clamp(64px, 10vw, 130px); }
+.hero__content { max-width: 720px; }
+.hero__statue {
+  position: absolute; inset-inline-end: clamp(10px, 4vw, 80px); bottom: 0; z-index: 1;
+  height: clamp(360px, 80%, 560px); width: auto; pointer-events: none;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, .45));
+  animation: statueIn 1s var(--ease) both;
+}
+.hero__statue::selection { background: transparent; }
+@keyframes statueIn { from { opacity: 0; transform: translateY(24px); } to { opacity: .96; transform: none; } }
+.hero__title strong, .hero__text strong { color: var(--gold); font-weight: 800; }
 .hero__eyebrow {
   display: inline-block; background: rgba(201,162,75,.18); color: var(--gold);
   padding: 7px 16px; border-radius: 999px; font-size: .85rem; font-weight: 700;
@@ -233,6 +243,9 @@ ul { list-style: none; }
 
 /* ===== Team ===== */
 .team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.team__grid--3 { grid-template-columns: repeat(3, 1fr); max-width: 980px; margin-inline: auto; }
+.member--lead { border-color: rgba(201, 162, 75, .55); box-shadow: 0 14px 34px rgba(201, 162, 75, .18); }
+.member--lead .member__avatar { background: linear-gradient(160deg, var(--gold), var(--gold-600)); color: #20160a; }
 .member {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 30px 24px; text-align: center; box-shadow: var(--shadow-sm);
@@ -352,9 +365,13 @@ ul { list-style: none; }
 
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
-  .services__grid, .why__grid, .team__grid, .process__steps { grid-template-columns: repeat(2, 1fr); }
+  .services__grid, .why__grid, .team__grid, .team__grid--3, .process__steps { grid-template-columns: repeat(2, 1fr); }
   .testimonials__grid { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 980px) {
+  .hero__statue { display: none; }
+  .hero__content { max-width: 100%; }
 }
 @media (max-width: 860px) {
   .nav-toggle { display: flex; }
@@ -375,7 +392,7 @@ ul { list-style: none; }
   .about__grid, .contact__grid { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 560px) {
-  .services__grid, .why__grid, .team__grid, .process__steps { grid-template-columns: 1fr; }
+  .services__grid, .why__grid, .team__grid, .team__grid--3, .process__steps { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; gap: 28px; }
   .topbar__contact { gap: 12px; }
   .topbar { font-size: .76rem; }
