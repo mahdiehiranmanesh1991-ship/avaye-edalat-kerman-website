@@ -1,20 +1,20 @@
 /* ===== Design tokens ===== */
 :root {
-  --navy: #0f2c4c;
-  --navy-700: #163a63;
-  --navy-900: #0a1f37;
+  --navy: #14402e;
+  --navy-700: #1d5a40;
+  --navy-900: #0b271c;
   --gold: #c9a24b;
   --gold-600: #b48d34;
-  --ink: #1d2733;
-  --muted: #5b6b7d;
-  --bg: #f6f8fb;
+  --ink: #232a25;
+  --muted: #5d6b60;
+  --bg: #f4f1e8;
   --surface: #ffffff;
-  --line: #e4e9f0;
+  --line: #e6e0d1;
   --radius: 16px;
   --radius-sm: 10px;
-  --shadow-sm: 0 2px 10px rgba(15, 44, 76, .06);
-  --shadow: 0 14px 40px rgba(15, 44, 76, .10);
-  --shadow-lg: 0 24px 60px rgba(15, 44, 76, .16);
+  --shadow-sm: 0 2px 10px rgba(11, 39, 28, .06);
+  --shadow: 0 14px 40px rgba(11, 39, 28, .10);
+  --shadow-lg: 0 24px 60px rgba(11, 39, 28, .16);
   --container: 1180px;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -216,7 +216,7 @@ ul { list-style: none; }
 .service:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: rgba(201,162,75,.5); }
 .service__icon {
   display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 14px;
-  background: rgba(15,44,76,.07); color: var(--navy); margin-bottom: 16px; transition: .25s var(--ease);
+  background: rgba(11,39,28,.07); color: var(--navy); margin-bottom: 16px; transition: .25s var(--ease);
 }
 .service:hover .service__icon { background: var(--gold); color: #20160a; }
 .service h3 { font-size: 1.18rem; color: var(--navy); margin-bottom: 8px; }
@@ -253,7 +253,7 @@ ul { list-style: none; }
 .process__num {
   display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
   background: var(--navy); color: var(--gold); font-weight: 800; font-size: 1.3rem; margin-bottom: 14px;
-  box-shadow: 0 8px 20px rgba(15,44,76,.2);
+  box-shadow: 0 8px 20px rgba(11,39,28,.2);
 }
 .process__steps h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 6px; }
 .process__steps p { color: var(--muted); font-size: .92rem; }
@@ -512,3 +512,75 @@ ul { list-style: none; }
   .article-foot { flex-direction: column; }
   .article-foot .btn { width: 100%; }
 }
+
+/* =====================================================================
+   بازآرایی مجله‌ای / ژورنال حقوقی — سبز تیره + طلایی، کادر دور صفحه،
+   چیدمان نامتقارن و جزئیات کلاسیک
+   ===================================================================== */
+
+/* لوگوی موسسه در هدر و فوتر */
+.brand__logo { width: 42px; height: auto; display: block; }
+.brand--footer .brand__logo { width: 38px; }
+.brand__mark { background: transparent; }
+
+/* کادر نازک دور کل صفحه (حس نشریه‌ی چاپی) */
+body::before {
+  content: ""; position: fixed; inset: 14px; z-index: 300; pointer-events: none;
+  border: 1px solid rgba(201, 162, 75, .45);
+}
+body::after {
+  content: ""; position: fixed; inset: 18px; z-index: 300; pointer-events: none;
+  border: 1px solid rgba(201, 162, 75, .14);
+}
+@media (max-width: 560px) {
+  body::before { inset: 8px; }
+  body::after { inset: 11px; }
+}
+
+/* نوار بالا و هدر مثل پیشانیِ نشریه */
+.topbar { border-bottom: 1px solid rgba(201, 162, 75, .25); }
+.hero { border-bottom: 2px solid var(--gold); }
+
+/* تیتر برند کمی کلاسیک‌تر */
+.brand__text strong { letter-spacing: -.2px; }
+
+/* سرتیتر بخش‌ها: نامتقارن و راست‌چین با خط طلایی بالای آن (سبک تیتر مجله) */
+.section__head {
+  max-width: 820px; margin-inline: 0; margin-bottom: 48px;
+  text-align: right; position: relative; padding-top: 26px;
+}
+.section__head::before {
+  content: ""; position: absolute; top: 0; right: 0;
+  width: 60px; height: 3px; background: var(--gold);
+}
+.section__eyebrow {
+  text-transform: none; letter-spacing: 1px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.section__title { letter-spacing: -.3px; }
+.section__title::after {
+  content: ""; display: block; width: 46px; height: 1px;
+  background: var(--line); margin-top: 16px;
+}
+
+/* عنوان‌های صفحه‌ی داخلی (مقالات) هم نامتقارن */
+.page-hero { text-align: right; border-bottom: 2px solid var(--gold); }
+.page-hero__lead { margin-inline: 0; }
+
+/* کارت‌ها کمی کلاسیک‌تر: گوشه‌های ملایم‌تر و خط بالای طلایی هنگام هاور */
+.service, .feature, .post-card, .member, .quote, .process__steps li {
+  border-radius: 12px;
+}
+.post-card { position: relative; }
+.post-card::before {
+  content: ""; position: absolute; top: 0; right: 0; left: 0; height: 3px;
+  background: var(--gold); transform: scaleX(0); transform-origin: right;
+  transition: transform .3s var(--ease); border-radius: 12px 12px 0 0; z-index: 2;
+}
+.post-card:hover::before { transform: scaleX(1); }
+
+/* عنوان «آخرین مقالات» در صفحه‌ی اصلی مثل تیتر مجله */
+#articles .section__head, #articles .posts__cta { text-align: right; }
+
+/* توازن: استفاده از فونت‌نمای ضخیم‌تر برای حس کلاسیک */
+.hero__title, .section__title, .article-head h1, .page-hero__title { font-weight: 800; }

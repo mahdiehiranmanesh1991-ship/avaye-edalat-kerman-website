@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 130" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Scales of justice (light) -->
+  <g stroke="#f3efe4" stroke-width="4.5">
+    <path d="M27 48 H93"/>
+    <path d="M31 48 V60"/><path d="M89 48 V60"/>
+    <path d="M20 60 Q31 73 42 60"/><path d="M78 60 Q89 73 100 60"/>
+  </g>
+  <!-- Letter Vav (و) central spine (gold) -->
+  <g stroke="#c9a24b" stroke-width="4.5">
+    <circle cx="60" cy="22" r="8.5"/>
+    <path d="M60 30.5 V95"/>
+    <path d="M60 95 C60 108 52 112 43 107"/>
+  </g>
+</svg>
