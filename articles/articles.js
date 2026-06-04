@@ -12,6 +12,11 @@
   var inArticlesDir = /\/articles\//.test(location.pathname);
   var root = inArticlesDir ? "../" : "";
 
+  function articleHref(a) {
+    // a.url -> standalone page (e.g. articles/xyz.html); otherwise the generated template page
+    return a.url ? root + a.url : root + "article.html?slug=" + encodeURIComponent(a.slug);
+  }
+
   function cardHTML(a) {
     var cover = a.cover
       ? '<span class="post-card__cover" style="background-image:url(' + esc(root + a.cover) + ')"></span>'
@@ -19,7 +24,7 @@
         '<svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v2H8zm0 4h8v2H8z"/></svg></span>';
     return (
       '<article class="post-card">' +
-        '<a class="post-card__link" href="' + root + 'article.html?slug=' + encodeURIComponent(a.slug) + '">' +
+        '<a class="post-card__link" href="' + esc(articleHref(a)) + '">' +
           cover +
           '<span class="post-card__body">' +
             '<span class="post-card__meta"><span class="post-card__cat">' + esc(a.category || "مقاله") + "</span><time>" + esc(a.date || "") + "</time></span>" +
