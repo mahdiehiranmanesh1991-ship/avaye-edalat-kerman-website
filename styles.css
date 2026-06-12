@@ -856,3 +856,18 @@ body::after { border-color: rgba(161,98,7,.10); }
 .process__num { font-family: var(--serif); font-weight: 600; background: var(--navy); color: var(--gold); }
 
 /* --- بازوی نشان‌ها در صفحه‌ی مقاله‌ی مستقل هماهنگ بماند (در همان فایل override جدا) --- */
+
+/* --- Hero value proposition (rewrite) --- */
+.bento__main-text h1 { font-size: clamp(1.55rem, 2.9vw, 2.35rem); line-height: 1.55; font-weight: 700; letter-spacing: -.3px; }
+.bento__lead { color: var(--muted); font-weight: 500; letter-spacing: 0; font-size: clamp(.98rem, 1.5vw, 1.12rem); line-height: 1.9; }
+.bento__values { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.bento__values li {
+  font-size: .8rem; font-weight: 600; color: var(--navy); letter-spacing: .2px;
+  background: rgba(15,23,42,.05); border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 14px;
+}
+.bento__values li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); margin-inline-end: 7px; vertical-align: middle; }
+
+/* ستون متنِ هرو عریض‌تر برای تیتر ارزش‌محور */
+.bento__main { grid-template-columns: 1.45fr .85fr; }
+@media (max-width: 640px) { .bento__main { grid-template-columns: 1fr; } }
