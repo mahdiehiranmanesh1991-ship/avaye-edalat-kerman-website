@@ -1,22 +1,24 @@
-/* ===== Design tokens ===== */
+/* ===== Design tokens — Luxury Editorial ===== */
 :root {
-  --navy: #14402e;
-  --navy-700: #1d5a40;
-  --navy-900: #0b271c;
-  --gold: #c9a24b;
-  --gold-600: #b48d34;
-  --ink: #232a25;
-  --muted: #5d6b60;
-  --bg: #f4f1e8;
+  --navy: #0F172A;
+  --navy-700: #1E293B;
+  --navy-900: #0a0f1e;
+  --gold: #A16207;
+  --gold-600: #854d0e;
+  --ink: #1E293B;
+  --muted: #64748B;
+  --bg: #F8F7F4;
   --surface: #ffffff;
-  --line: #e6e0d1;
-  --radius: 16px;
-  --radius-sm: 10px;
-  --shadow-sm: 0 2px 10px rgba(11, 39, 28, .06);
-  --shadow: 0 14px 40px rgba(11, 39, 28, .10);
-  --shadow-lg: 0 24px 60px rgba(11, 39, 28, .16);
+  --line: #e7e3da;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow-sm: 0 2px 14px rgba(15, 23, 42, .05);
+  --shadow: 0 18px 50px -22px rgba(15, 23, 42, .16);
+  --shadow-lg: 0 30px 70px -30px rgba(15, 23, 42, .22);
   --container: 1180px;
   --ease: cubic-bezier(.22, 1, .36, 1);
+  --serif: "Cormorant Garamond", "Vazirmatn", serif;
+  --sans: "Estedad", "Yekan Bakh", "Vazirmatn", "Tahoma", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -756,3 +758,101 @@ body::after {
   .bento__seal { width: 84px; height: 84px; bottom: 12px; inset-inline-end: 12px; }
   .bento__nav { display: none; }
 }
+
+/* =====================================================================
+   LUXURY EDITORIAL — off-white، تایپوگرافی ظریف، گلس‌مورفیسم، فضای زیاد
+   (این بلوک در انتهای فایل، روی استایل‌های قبلی اولویت دارد)
+   ===================================================================== */
+html {
+  background:
+    radial-gradient(42% 32% at 88% 6%, rgba(161,98,7,.07), transparent 60%),
+    radial-gradient(40% 36% at 4% 92%, rgba(15,23,42,.05), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+body { background: transparent; font-family: var(--sans); color: var(--ink); line-height: 1.95; }
+
+/* صفحه‌ی فریم نازک — بازرنگ به اکسنت */
+body::before { border-color: rgba(161,98,7,.26); }
+body::after { border-color: rgba(161,98,7,.10); }
+
+/* --- Typography: ظرافت ادیتوریال --- */
+.section__title, .hero__title, .bento__main-text h1, .article-head h1,
+.page-hero__title, .resume__head h1, .brand__text strong {
+  font-weight: 600; letter-spacing: -.4px;
+}
+.section__eyebrow, .bento__tag, .post-card__cat, .bento__pill, .article-cat, .resume__role {
+  text-transform: none; letter-spacing: 2.5px; font-weight: 600;
+}
+.section__lead, .article-body, .bento__quote p, .resume__sec p { color: var(--muted); }
+
+/* --- فاصله‌گذاری زیاد --- */
+.section { padding: clamp(72px, 10vw, 138px) 0; }
+.section__head { margin-bottom: clamp(44px, 6vw, 66px); }
+.container { width: min(var(--container), 90%); }
+
+/* --- پس‌زمینه‌ی بخش‌ها شفاف تا کارت شیشه‌ای دیده شود --- */
+.services, .testimonials, .process, .posts, .why, .team, .about, .faq, .contact, .quickcta { background: transparent; }
+
+/* --- Glassmorphism برای کارت‌ها --- */
+.service, .feature, .post-card, .member, .quote, .faq__item,
+.contact__form, .bento__quote, .resume__head, .resume__contact {
+  background: rgba(255,255,255,.55) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  backdrop-filter: blur(16px) saturate(135%);
+  border: 1px solid rgba(255,255,255,.7);
+  box-shadow: 0 22px 54px -30px rgba(15,23,42,.28);
+}
+.service:hover, .feature:hover, .post-card:hover, .member:hover {
+  background: rgba(255,255,255,.72) !important; border-color: rgba(161,98,7,.4);
+}
+
+/* --- حذف آیکون‌های کلیشه‌ای و جایگزینی با شماره‌های سریف --- */
+.services__grid { counter-reset: svc; }
+.service { counter-increment: svc; }
+.service__icon { background: transparent !important; width: auto; height: auto; margin-bottom: 16px; color: var(--gold) !important; }
+.service__icon svg { display: none; }
+.service__icon::before { content: counter(svc, decimal-leading-zero); font-family: var(--serif); font-size: 2.5rem; font-weight: 600; color: var(--gold); line-height: 1; }
+.service--cta .service__icon { display: none; }
+
+.why__grid { counter-reset: wf; }
+.feature { counter-increment: wf; }
+.feature__icon { background: transparent !important; width: auto; height: auto; border-radius: 0; margin-bottom: 12px; color: var(--gold) !important; }
+.feature__icon svg { display: none; }
+.feature__icon::before { content: counter(wf, decimal-leading-zero); font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--gold); line-height: 1; }
+
+/* عنوان‌های مقاله: حذف آیکون پیش‌فرض کاور و حالت ادیتوریال */
+.post-card__cover--ph svg { opacity: .25; }
+
+/* --- Header شیشه‌ای --- */
+.header { background: rgba(248,247,244,.78); -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%); }
+.topbar { background: var(--navy); color: #cbd5e1; }
+
+/* --- HERO بنتو در سبک لوکس --- */
+.hero { background: transparent; border-bottom: none; padding: clamp(18px, 3vw, 36px) 0 clamp(40px, 6vw, 84px); }
+.bento__side { background: linear-gradient(165deg, var(--navy), var(--navy-900)); border: 1px solid rgba(255,255,255,.06); }
+.bento__main {
+  background: rgba(255,255,255,.55); -webkit-backdrop-filter: blur(18px) saturate(135%); backdrop-filter: blur(18px) saturate(135%);
+  border: 1px solid rgba(255,255,255,.7);
+}
+.bento__main-text h1 { color: var(--navy); font-weight: 600; letter-spacing: -1.2px; line-height: 1.16; }
+.bento__lead { color: var(--gold); font-weight: 600; letter-spacing: 1px; }
+.bento__tag { background: rgba(15,23,42,.05); color: var(--navy); border-color: var(--line); }
+.bento__main-media { filter: grayscale(.28) contrast(1.03); }
+.bento__photo { background: linear-gradient(160deg, var(--navy-700), var(--navy-900)); }
+.bento__quote { background: rgba(255,255,255,.55) !important; }
+
+/* --- About card تیره‌ی لوکس --- */
+.about__card { background: linear-gradient(165deg, var(--navy), var(--navy-900)); }
+
+/* --- انیمیشن بسیار ظریف --- */
+.reveal { transform: translateY(14px); transition: opacity .95s var(--ease), transform .95s var(--ease); }
+
+/* --- دکمه‌ها: لبه‌های ادیتوریال --- */
+.btn { letter-spacing: .3px; }
+.btn--ghost-dark { border-color: var(--line); color: var(--navy); }
+
+/* --- اعداد سریف برای فرآیند --- */
+.process__num { font-family: var(--serif); font-weight: 600; background: var(--navy); color: var(--gold); }
+
+/* --- بازوی نشان‌ها در صفحه‌ی مقاله‌ی مستقل هماهنگ بماند (در همان فایل override جدا) --- */

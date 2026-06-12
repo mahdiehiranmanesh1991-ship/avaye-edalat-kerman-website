@@ -1,23 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1d5a40"/>
-      <stop offset="1" stop-color="#0b271c"/>
-    </linearGradient>
-    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e0bf72"/>
-      <stop offset="1" stop-color="#b48d34"/>
+      <stop offset="0" stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
     </linearGradient>
   </defs>
-  <circle cx="100" cy="100" r="97" fill="url(#bg)"/>
-  <circle cx="100" cy="100" r="93" fill="none" stroke="url(#ring)" stroke-width="3"/>
-  <!-- scales watermark -->
-  <g opacity="0.14" fill="none" stroke="#c9a24b" stroke-width="5" stroke-linecap="round" transform="translate(40,98) scale(1.0)">
-    <path d="M10 20 H110"/><path d="M22 20 V36"/><path d="M98 20 V36"/>
-    <path d="M6 36 Q22 56 38 36"/><path d="M82 36 Q98 56 114 36"/>
-    <path d="M60 4 V64"/>
-  </g>
-  <!-- monogram -->
-  <text x="100" y="96" text-anchor="middle" font-family="Vazirmatn, Tahoma, sans-serif" font-size="52" font-weight="800" fill="#f3efe4">م</text>
-  <text x="100" y="148" text-anchor="middle" font-family="Vazirmatn, Tahoma, sans-serif" font-size="24" font-weight="700" fill="#c9a24b">ایرانمنش</text>
+  <circle cx="100" cy="100" r="98" fill="url(#bg)"/>
+  <circle cx="100" cy="100" r="91" fill="none" stroke="#A16207" stroke-width="1.4" opacity="0.8"/>
+  <text x="100" y="103" text-anchor="middle" font-family="Vazirmatn, Tahoma, sans-serif" font-size="62" font-weight="600" fill="#f1ede6">م</text>
+  <text x="100" y="150" text-anchor="middle" font-family="Vazirmatn, Tahoma, sans-serif" font-size="22" font-weight="500" letter-spacing="2" fill="#A16207">ایرانمنش</text>
 </svg>
