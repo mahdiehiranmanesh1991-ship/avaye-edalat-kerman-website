@@ -55,3 +55,18 @@ export interface Article {
   /** بدنه‌ی مقاله به‌صورت HTML معتبر */
   body: string;
 }
+
+export type LeadStatus = "new" | "review" | "scheduled" | "retained" | "closed";
+
+export interface Lead {
+  id: string;
+  name: string;
+  phone: string;
+  caseType: string;
+  documents: string;
+  notes: string;
+  score: number; // 0–100
+  followUp: string; // YYYY-MM-DD
+  status: LeadStatus;
+  createdAt: number;
+}
