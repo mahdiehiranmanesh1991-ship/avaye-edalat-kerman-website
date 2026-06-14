@@ -5,7 +5,7 @@ import QuickCTA from "@/components/sections/QuickCTA";
 import WhyUs from "@/components/sections/WhyUs";
 import Process from "@/components/sections/Process";
 import Team from "@/components/sections/Team";
-import Testimonials from "@/components/sections/Testimonials";
+import Expertise from "@/components/sections/Expertise";
 import ArticlesPreview from "@/components/sections/ArticlesPreview";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
@@ -20,7 +20,7 @@ export default function HomePage() {
       <WhyUs />
       <Process />
       <Team />
-      <Testimonials />
+      <Expertise />
       <ArticlesPreview />
       <Faq />
       <Contact />
